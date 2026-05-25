@@ -1,20 +1,22 @@
-import QRCode from "react-qr-code";
-
 function QRTicket() {
   return (
-    <div className="qr-page">
-      <div className="qr-box">
-        <h1>Boleto Electrónico</h1>
+    <div
+      style={{
+        color: "white",
+        textAlign: "center",
+        marginTop: "100px",
+      }}
+    >
+      <h1 style={{ color: "white" }}>
+       🎟 Ticket Generado
+      </h1>
 
-        <QRCode
-          value="PCE-TEATRO-123456789"
-          size={220}
-        />
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=EntradaTeatro"
+        alt="QR Ticket"
+      />
 
-        <p>
-          Código único del boleto
-        </p>
-      </div>
+      <p>Presenta este código QR en la entrada</p>
     </div>
   );
 }

@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 function Checkout() {
+  const navigate = useNavigate();
   return (
     <div className="checkout-page">
       <div className="checkout-box">
@@ -39,8 +42,8 @@ function Checkout() {
                 "Pago realizado correctamente"
               );
 
-              window.location.href =
-                "/ticket";
+              navigate("/ticket");
+              
             }}
           >
             Pagar RD$1500
