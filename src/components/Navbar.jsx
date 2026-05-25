@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
+  const user = localStorage.getItem("user");
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
   return (
     <nav className="navbar">
+
       <div className="nav-logo">
         PCE-Teatro
       </div>
 
       <ul>
+
         <li>
           <Link to="/">Inicio</Link>
         </li>
@@ -35,13 +45,32 @@ function Navbar() {
             Contacto
           </Link>
         </li>
+
       </ul>
 
-      <Link to="/login">
-        <button className="login-btn">
-          Iniciar Sesión
-        </button>
-      </Link>
+      {
+        user ? (
+
+          <button
+            className="login-btn"
+            onClick={logout}
+          >
+            Cerrar Sesión
+          </button>
+
+        ) : (
+
+          <Link to="/login">
+
+            <button className="login-btn">
+              Iniciar Sesión
+            </button>
+
+          </Link>
+
+        )
+      }
+
     </nav>
   );
 }
